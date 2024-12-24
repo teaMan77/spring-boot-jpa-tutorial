@@ -29,7 +29,12 @@ public class Student {
             nullable = false
     )
     private String emailId;
-    private String guardianName;
-    private String guardianEmail;
-    private String guardianMobile;
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "name", column = @Column(name = "guardian_name")),
+            @AttributeOverride(name = "email", column = @Column(name = "guardian_email")),
+            @AttributeOverride(name = "mobile", column = @Column(name = "guardian_mobile"))
+    })
+    private Guardian guardian;
 }
