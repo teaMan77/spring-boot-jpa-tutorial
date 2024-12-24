@@ -16,6 +16,9 @@ class TeacherRepositoryTest {
     @Autowired
     private TeacherRepository teacherRepository;
 
+    @Autowired
+    private CourseRepository courseRepository;
+
     @Test
     public void saveTeacher() {
         Course course = Course.builder()
@@ -26,9 +29,25 @@ class TeacherRepositoryTest {
         Teacher teacher = Teacher.builder()
                 .firstName("Virat")
                 .lastName("Singh")
-                .courses(List.of(course))
+//                .courses(List.of(course))
                 .build();
 
         teacherRepository.save(teacher);
+    }
+
+    @Test
+    public void saveCourseWithTeacher() {
+        Teacher teacher = Teacher.builder()
+                .firstName("Suresh")
+                .lastName("Kumar")
+                .build();
+
+        Course course = Course.builder()
+                .title("Python")
+                .credit(5)
+                .teacher(teacher)
+                .build();
+
+        courseRepository.save(course);
     }
 }
