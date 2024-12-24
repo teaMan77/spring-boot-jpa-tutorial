@@ -105,4 +105,12 @@ class StudentRepositoryTest {
 
         System.out.println(studentName);
     }
+
+    @Test
+    public void getStudentFirstNameAndLastNameByEmailUsingNativeQuery() {
+        List<String> studentName = studentRepository.
+                findFirstNameAndLastNameByEmailAddress("RS@yopmail.com");
+
+        System.out.println(studentName);
+    }
 }
