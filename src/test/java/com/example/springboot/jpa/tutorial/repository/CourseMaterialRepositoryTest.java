@@ -8,8 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 class CourseMaterialRepositoryTest {
 
@@ -39,5 +37,12 @@ class CourseMaterialRepositoryTest {
         List<CourseMaterial> list = courseMaterialRepository.findAll();
 
         System.out.println(list);
+    }
+
+    @Test
+    public void getCourses() {
+        List<Course> list = courseRepository.findAll();
+
+        System.out.println("list = " + list);
     }
 }
