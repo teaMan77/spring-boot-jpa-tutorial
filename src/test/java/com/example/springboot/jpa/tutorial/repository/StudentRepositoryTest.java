@@ -113,4 +113,19 @@ class StudentRepositoryTest {
 
         System.out.println(studentName);
     }
+
+    @Test
+    public void getStudentFirstNameByEmailUsingNativeQueryWithNamedParam() {
+        String firstName = studentRepository.findFirstNameByEmail("RS@yopmail.com");
+
+        System.out.println(firstName);
+    }
+
+    @Test
+    public void updateStudentFirstNameByEmail() {
+        int updatedStudent = studentRepository.
+                updateFirstNameByEmailId("Ankit", "RS@yopmail.com");
+
+        System.out.println(updatedStudent);
+    }
 }
