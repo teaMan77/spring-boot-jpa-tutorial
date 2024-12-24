@@ -20,7 +20,7 @@ class CourseMaterialRepositoryTest {
     @Test
     public void saveCourseMaterialTest() {
         Course course = Course.builder()
-                .title("DSA")
+                .title("Java")
                 .credit(5)
                 .build();
 
