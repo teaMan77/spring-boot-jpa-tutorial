@@ -84,4 +84,25 @@ class StudentRepositoryTest {
 
         System.out.println(student.toString());
     }
+
+    @Test
+    public void getStudentByEmail() {
+        Student student = studentRepository.findByEmailAddress("RS@yopmail.com"); //using JPQL
+
+        System.out.println(student.toString());
+    }
+
+    @Test
+    public void getStudentByFirstNameAndGuardianName() {
+        List<Student> list = studentRepository.findByFirstNameAndGuardianName("Rohit", "VG");
+
+        System.out.println(list);
+    }
+
+    @Test
+    public void getStudentFirstNameByEmailId() {
+        String studentName = studentRepository.findFirstNameByEmailId("RS@yopmail.com");
+
+        System.out.println(studentName);
+    }
 }
