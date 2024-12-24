@@ -16,9 +16,7 @@ public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long courseId;
-    private String credit;
+    private int credit;
     private String title;
 
-    @OneToOne(mappedBy = "course")
-    private CourseMaterial courseMaterial;
 }
