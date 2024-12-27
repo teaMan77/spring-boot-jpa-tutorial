@@ -1,6 +1,9 @@
 package com.example.springboot.jpa.tutorial.repository;
 
 import com.example.springboot.jpa.tutorial.entity.Course;
+import com.example.springboot.jpa.tutorial.entity.CourseMaterial;
+import com.example.springboot.jpa.tutorial.entity.Student;
+import com.example.springboot.jpa.tutorial.entity.Teacher;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -41,5 +44,29 @@ class CourseRepositoryTest {
         List<Course> courses = courseRepository.findAll(firstPageWithThreeRecords).getContent();
 
         System.out.println("courses = " + courses);
+    }
+
+    @Test
+    public void saveCourseWithStudentAndTeacher() {
+
+        Teacher teacher = Teacher.builder()
+                .firstName("John")
+                .lastName("Doe")
+                .build();
+
+        Student student  = Student.builder()
+                .firstName("Michael")
+                .lastName("Jackson")
+                .emailId("mj@yopmail.com")
+                .build();
+
+        Course course = Course.builder()
+                .title("AI")
+                .credit(5)
+                .teacher(teacher)
+                .students(List.of(student))
+                .build();
+
+        courseRepository.save(course);
     }
 }
